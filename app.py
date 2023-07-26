@@ -71,7 +71,8 @@ model = load_model('keras_model.h5')
 
 
 past_100_Days = data_train.tail(100)
-final_df = past_100_Days.append(data_test , ignore_index = True)
+#final_df = past_100_Days.append(data_test , ignore_index = True)
+final_df = pd.concat([past_100Days, data_test], ignore_index=True)
 input_data = scaler.fit_transform(final_df)
 
 x_test=[]
